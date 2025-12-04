@@ -3,13 +3,13 @@
 #define LETTERLEN 150
 #define WORDLEN 4
 
-int lineLength(char* pLett) {
-	int length = 0;
+char* lineLength(char* pLett) {
+	//int length = 0;
 	while (*pLett != '\0') {
-		length++;
+		//length++;
 		pLett++;
 	}
-	return length;
+	return pLett;
 }
 
 int main()
@@ -24,7 +24,7 @@ int main()
 	printf("Enter a word to search for, length of word is 3:\n");
 	gets_s(word, WORDLEN);
 	pWord = word;
-	if (lineLength(pWord)<3) {
+	if (lineLength(pWord)- pWord <3) {
 		printf("The length of the line is too short\n");
 		return 1;
 	}
@@ -49,13 +49,15 @@ int main()
 	*pLettCopy = '\0';
 	pLettCopy = letterCopy;
 	pLett = letter;
-	for (int i = 0; letterCopy[i] != '\0'; i++)
-	{
-		*pLett = *pLettCopy;
-		pLett++;
-		pLettCopy++;
-	}
-	*pLett = '\0';
+	//for ( ; *pLettCopy ;)
+	//do
+	//{
+	//	*pLett++ = *pLettCopy++;
+	//	//pLett++;
+	//	//pLettCopy++;
+	//} while (*(pLett - 1));
+	while (*pLett++ = *pLettCopy++);
+	//*pLett = '\0';
 	printf("The \"%s\" was found %d times.\n", word, found);
 	printf("The line after removing the word is:\n");
 	printf("%s\n", letterCopy);
